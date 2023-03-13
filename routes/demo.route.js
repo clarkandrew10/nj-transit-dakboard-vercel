@@ -95,13 +95,29 @@
 
 // module.exports = r;
 
-const { Router } = require("express");
-const { SuccessResponseObject } = require("../common/http");
+import { Router } from "express";
+import { SuccessResponseObject } from "../common/http";
 
 const r = Router();
 
-r.get("/", (req, res) =>
-	res.json(new SuccessResponseObject("demo path live 🚀"))
-);
+r.get("/", (req, res) => {
+	try {
+		// const data = await getRouteData();
+		const data = {
+			statusCode: 200,
+			body: {},
+		};
 
-module.exports = r;
+		if (data.statusCode === 200) {
+			return res.json(new SuccessResponseObject(data.body));
+		} else {
+			return res.json(new ErrorResponseObject("err:" + data.body));
+		}
+	} catch (e) {
+		console.log(e);
+		return res.json(new ErrorResponseObject("err:" + e));
+	}
+	return res.json(new SuccessResponseObject("demo path live 🚀"));
+});
+
+export default r;

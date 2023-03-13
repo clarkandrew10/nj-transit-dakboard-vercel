@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const demo = require("./demo.route");
+const demo = require("./demo.route").default;
 
 const r = Router();
 
