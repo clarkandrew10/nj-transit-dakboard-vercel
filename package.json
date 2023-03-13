@@ -8,8 +8,16 @@
     "test": "jest -i"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.21",
+    "puppeteer": "^18.1.0",
+    "serverless-http": "^3.2.0",
+    "vercel": "^28.16.15"
   },
   "keywords": [
     "vercel"
