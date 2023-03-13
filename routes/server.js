@@ -69,12 +69,16 @@ const getRouteData = async () => {
 };
 
 r.get("/", async (req, res) => {
-	const data = await getRouteData();
-	if (data.statusCode === 200) {
-		res.json(new SuccessResponseObject(data.body));
-	} else {
-		res.json(new ErrorResponseObject("err:" + data.body));
+	try {
+		const data = await getRouteData();
+		if (data.statusCode === 200) {
+			return res.json(new SuccessResponseObject(data.body));
+		} else {
+			return res.json(new ErrorResponseObject("err:" + data.body));
+		}
+	} catch (e) {
+		return res.json(new ErrorResponseObject("err:" + e));
 	}
 });
 
-module.exports = r;
+export default r;
