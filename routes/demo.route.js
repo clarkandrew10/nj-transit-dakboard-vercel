@@ -1,6 +1,12 @@
-// import { SuccessResponseObject, ErrorResponseObject } from "../common/http";
-// import puppeteer from "puppeteer";
-// import { Router } from "express";
+// const { Router } = require("express");
+// const {
+// 	SuccessResponseObject,
+// 	ErrorResponseObject,
+// } = require("../common/http");
+// const puppeteer = require("puppeteer");
+// // import { SuccessResponseObject, ErrorResponseObject } from "../common/http";
+// // import puppeteer from "puppeteer";
+// // import { Router } from "express";
 
 // const r = Router();
 
@@ -70,18 +76,25 @@
 
 // r.get("/", async (req, res) => {
 // 	try {
-// 		const data = await getRouteData();
+// 		// const data = await getRouteData();
+// 		const data = {
+// 			statusCode: 200,
+// 			body: {},
+// 		};
+
 // 		if (data.statusCode === 200) {
-// 			return res.json(new SuccessResponseObject(data.body));
+// 			res.json(new SuccessResponseObject(data.body));
 // 		} else {
-// 			return res.json(new ErrorResponseObject("err:" + data.body));
+// 			res.json(new ErrorResponseObject("err:" + data.body));
 // 		}
 // 	} catch (e) {
-// 		return res.json(new ErrorResponseObject("err:" + e));
+// 		console.log(e);
+// 		res.json(new ErrorResponseObject("err:" + e));
 // 	}
 // });
 
-// export default r;
+// module.exports = r;
+
 const { Router } = require("express");
 const { SuccessResponseObject } = require("../common/http");
 
