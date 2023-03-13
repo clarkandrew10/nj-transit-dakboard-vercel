@@ -1,11 +1,16 @@
-import { Router } from "express";
-import { SuccessResponseObject } from "../common/http";
-import server from "./server";
+const { Router } = require("express");
+const demo = require("./demo.route");
 
 const r = Router();
 
-// r.use("/190", server);
+r.use("/demo", demo);
 
-r.get("/", (req, res) => res.json(new SuccessResponseObject("😵‍💫")));
+r.get("/", (req, res) => {
+	res.json({
+		success: true,
+		message: "express vercel boiler plate",
+		data: null,
+	});
+});
 
-export default r;
+module.exports = r;
