@@ -1,39 +1,19 @@
-const { Router } = require("express");
-const {
-	SuccessResponseObject,
-	ErrorResponseObject,
-} = require("../common/http");
-const chromium = require("chrome-aws-lambda");
-// const puppeteer = require("puppeteer");
+import { Router } from "express";
+import { SuccessResponseObject, ErrorResponseObject } from "../common/http";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 
 const r = Router();
 
 const getRouteData = async () => {
-	// await new Promise((resolve) => setTimeout(resolve, 1000));
-	// return {
-	// 	statusCode: 200,
-	// 	body: JSON.stringify({
-	// 		updatedDate: new Date().toISOString(),
-	// 		data: [
-	// 			{
-	// 				busNumber: "123",
-	// 				eta: "1 min",
-	// 			},
-	// 			{
-	// 				busNumber: "456",
-	// 				eta: "2 min",
-	// 			},
-	// 		],
-	// 	}),
-	// };
-
 	try {
 		// Start a Puppeteer session
-		const browser = await chromium.puppeteer.launch({
+		const browser = await puppeteer.launch({
 			headless: true,
 			defaultViewport: null,
 			args: chromium.args,
-			executablePath: await chromium.executablePath,
+			executablePath: await chromium.executablePath(),
+			defaultViewport: chromium.defaultViewport,
 		});
 
 		// Open a new page
