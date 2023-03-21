@@ -9,11 +9,11 @@ const getRouteData = async () => {
 	try {
 		// Start a Puppeteer session
 		const browser = await puppeteer.launch({
-			headless: true,
-			defaultViewport: null,
 			args: chromium.args,
-			executablePath: await chromium.executablePath(),
 			defaultViewport: chromium.defaultViewport,
+			executablePath: "/usr/bin/chromium-browser",
+			headless: chromium.headless,
+			ignoreHTTPSErrors: true,
 		});
 
 		// Open a new page
