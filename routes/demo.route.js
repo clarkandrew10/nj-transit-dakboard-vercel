@@ -11,7 +11,10 @@ const getRouteData = async () => {
 		const browser = await puppeteer.launch({
 			args: chromium.args,
 			defaultViewport: chromium.defaultViewport,
-			executablePath: "/usr/bin/chromium-browser",
+			executablePath:
+				process.env.NODE_ENV !== "production"
+					? undefined
+					: await chromium.executablePath(),
 			headless: chromium.headless,
 			ignoreHTTPSErrors: true,
 		});

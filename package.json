@@ -4,11 +4,12 @@
 	"description": "express vercel boilerplate",
 	"main": "app.js",
 	"scripts": {
+		"build": "docker buildx mybuilder --tag nj-transit .",
 		"start": "vercel dev",
 		"test": "jest -i"
 	},
 	"dependencies": {
-		"@sparticuz/chromium": "^107.0.0",
+		"@sparticuz/chromium": "^111.0.0",
 		"body-parser": "^1.20.2",
 		"chrome-aws-lambda": "^10.1.0",
 		"cors": "^2.8.5",
@@ -17,8 +18,8 @@
 		"helmet": "^4.6.0",
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.21",
-		"puppeteer": "^18.1.0",
-		"puppeteer-core": "^10.1.0",
+		"puppeteer": "^19.7.0",
+		"puppeteer-core": "^19.7.0",
 		"serverless-http": "^3.2.0",
 		"vercel": "^28.16.15"
 	},
